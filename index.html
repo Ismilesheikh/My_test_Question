@@ -175,9 +175,6 @@
     </style>
 </head>
 <body>
-<button class="btn" onclick="openPaper('2025/class1/dec.json')">Open Paper 1</button>
-<button class="btn" onclick="openPaper('q2.json')">Open Paper 2</button>
-<button class="btn" onclick="openPaper('q3.json')">Open Paper 3</button>
     <div class="container">
         <div class="header">
             <h1>📚 My Test Questions</h1>
@@ -201,15 +198,19 @@
         const structure = {
             'कक्षा 8': {
                 'दिसम्बर 2025': 'Class 1/Dec 2025/q.json',
-                'जनवरी 2026': 'Class 1/Jan2026/q.json' // Update path as needed
+                'जनवरी 2026': '2025/dec/class1.json' ,// Update path as needed
+                'जनवरी 2027': '' // Update path as needed
+
+            },
+            'कक्षा 9': {
+                'दिसम्बर 2025': 'Class 1/Dec 2025/q.json',
+                'जनवरी 2026': '2025/dec/class1.json' ,// Update path as needed
+                'जनवरी 2027': '' // Update path as needed
+
             }
         };
 
         let questionPaperCount = 0;
-function openPaper(file){
-    window.location.href = "paper.html?file=" + file;
-}
-
         async function loadContent() {
             const contentDiv = document.getElementById('content');
             let html = '';

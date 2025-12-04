@@ -1,8 +1,13 @@
 {
-"title": "दिसम्बर 2025 - गणित प्रश्न पत्र",
-"class": "कक्षा 8",
-"subject": "गणित",
-
+"title": " Test Examination January 2026",
+"class": "Class 1",
+"subject": "Math",
+"studentDetails": {
+  "name": "____________________",
+  "rollNumber": "__________",
+  "date": "______________",
+  "class": ""
+},
 "questions": [
 
   {
@@ -14,6 +19,7 @@
   },
   {
     "type": "math",
+    "marks": 20,
     "text": "निम्नलिखित में घटाएँ:",
     "mathParts": [
       { "type": "subtraction", "num1": "600", "num2": "247" }
