@@ -302,7 +302,8 @@
 </head>
 <body>
     <div class="container">
-        <a href="#" class="back-link">← वापस जाएँ</a>
+        <a href="home.html" class="back-link">← होम पर वापस जाएँ</a>
+        <a href="Class 1/Dec 2025/dec.html" class="back-link">Print</a>
 
         <div class="header">
             <h1 id="title">दिसम्बर 2025 - गणित प्रश्न पत्र</h1>
@@ -325,22 +326,22 @@
         <div class="stats" id="stats">
             <div class="stat-box">
                 <div class="stat-number" id="mathCount">0</div>
-            <div class="filter-group">
-                <label for="typeFilter">प्रकार:</label>
-                <select id="typeFilter" title="प्रश्न प्रकार के अनुसार फ़िल्टर करें">
-                    <option value="">सभी</option>
-                    <option value="math">गणित</option>
-                    <option value="subjective">वर्णनात्मक</option>
-                </select>
+                <div class="stat-label">गणित प्रश्न</div>
             </div>
+            <div class="stat-box">
+                <div class="stat-number" id="subjectiveCount">0</div>
+                <div class="stat-label">वर्णनात्मक प्रश्न</div>
+            </div>
+        </div>
+
         <div class="filters">
             <div class="filter-group">
                 <label>🔍 खोजें:</label>
                 <input type="text" id="searchInput" placeholder="प्रश्न खोजें...">
             </div>
             <div class="filter-group">
-                <label>प्रकार:</label>
-                <select id="typeFilter" style="padding: 8px 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;">
+                <label for="typeFilter">प्रकार:</label>
+                <select id="typeFilter" title="प्रश्न प्रकार के अनुसार फ़िल्टर करें">
                     <option value="">सभी</option>
                     <option value="math">गणित</option>
                     <option value="subjective">वर्णनात्मक</option>
@@ -364,11 +365,16 @@
         // Load questions from JSON
         async function loadQuestions() {
             try {
-                const response = await fetch('Class 1/Dec 2025/q.json');
+                // Get the selected JSON path from session storage
+                const jsonPath = sessionStorage.getItem('selectedJsonPath') || 'Class 1/Dec 2025/q.json';
+                const selectedClass = sessionStorage.getItem('selectedClass') || 'कक्षा 8';
+                const selectedMonth = sessionStorage.getItem('selectedMonth') || 'दिसम्बर 2025';
+
+                const response = await fetch(jsonPath);
                 const data = await response.json();
 
                 document.getElementById('title').textContent = data.title;
-                document.getElementById('classLevel').textContent = data.class;
+                document.getElementById('classLevel').textContent = data.class || selectedClass;
                 document.getElementById('subject').textContent = data.subject;
 
                 allQuestions = data.questions;
@@ -380,7 +386,7 @@
             } catch (error) {
                 console.error('Error loading questions:', error);
                 document.getElementById('questionsContainer').innerHTML = 
-                    '<div class="empty-state"><h3>प्रश्न लोड नहीं हो सके</h3></div>';
+                    '<div class="empty-state"><h3>प्रश्न लोड नहीं हो सके</h3><p>फ़ाइल पथ: ' + (sessionStorage.getItem('selectedJsonPath') || 'Class 1/Dec 2025/q.json') + '</p></div>';
             }
         }
 

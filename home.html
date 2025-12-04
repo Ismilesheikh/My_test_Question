@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Test Questions - होम</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            background: white;
+            color: #667eea;
+            padding: 15px 25px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-content {
+            background: white;
+            border-radius: 0 0 10px 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 0;
+        }
+
+        .question-btn {
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .question-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .question-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .btn-class {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-class:hover {
+            box-shadow: 0 15px 30px rgba(245, 87, 108, 0.6);
+        }
+
+        .btn-month {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .btn-month:hover {
+            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.6);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .buttons-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .question-btn {
+                padding: 20px 15px;
+                font-size: 1em;
+            }
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 My Test Questions</h1>
+            <p>अपने प्रश्न पत्र का चयन करें</p>
+            <div class="stats-bar">
+                <div class="stat" id="totalStats">कुल प्रश्न पत्र: 0</div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="loading">डेटा लोड हो रहा है...</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 My Test Questions - सभी अधिकार सुरक्षित</p>
+    </div>
+
+    <script>
+        // Define the structure of classes and months with their JSON files
+        const structure = {
+            'कक्षा 8': {
+                'दिसम्बर 2025': 'Class 1/Dec 2025/q.json',
+                'जनवरी 2026': 'Class 1/Jan2026/q.json' // Update path as needed
+            }
+        };
+
+        let questionPaperCount = 0;
+
+        async function loadContent() {
+            const contentDiv = document.getElementById('content');
+            let html = '';
+
+            for (const [className, months] of Object.entries(structure)) {
+                html += `
+                    <div class="section">
+                        <div class="section-title">📖 ${className}</div>
+                        <div class="section-content">
+                            <div class="buttons-grid">
+                `;
+
+                for (const [monthName, jsonPath] of Object.entries(months)) {
+                    const fileExists = await checkFileExists(jsonPath);
+                    if (fileExists) {
+                        html += `
+                            <button class="question-btn btn-month" onclick="openQuestions('${jsonPath}', '${className}', '${monthName}')">
+                                ${monthName}
+                            </button>
+                        `;
+                        questionPaperCount++;
+                    }
+                }
+
+                html += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (questionPaperCount === 0) {
+                html = '<div class="empty-state"><h3>कोई प्रश्न पत्र नहीं मिला</h3></div>';
+            }
+
+            contentDiv.innerHTML = html;
+            document.getElementById('totalStats').textContent = `कुल प्रश्न पत्र: ${questionPaperCount}`;
+        }
+
+        async function checkFileExists(filePath) {
+            try {
+                const response = await fetch(filePath, { method: 'HEAD' });
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        function openQuestions(jsonPath, className, monthName) {
+            // Store the selected file path and details in session storage
+            sessionStorage.setItem('selectedJsonPath', jsonPath);
+            sessionStorage.setItem('selectedClass', className);
+            sessionStorage.setItem('selectedMonth', monthName);
+
+            // Redirect to the questions page
+            window.location.href = 'index.html';
+        }
+
+        // Load content when page loads
+        window.addEventListener('load', loadContent);
+    </script>
+</body>
+</html>
