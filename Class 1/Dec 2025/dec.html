@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Question Paper</title>
+  <!-- MathJax for rendering equations -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+
+    body {
+      font-family: "Times New Roman", serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .a4 {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 5mm 5mm 5mm 5mm;
+      margin: 5px auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top:5px;
+      margin-bottom: 20px;
+    }
+    .time_fullmark{
+      display: flex;
+      justify-content: space-between;
+    }
+h2{text-align: center;
+}
+.notes{
+  border-top: 1px solid black;
+}
+    .question {
+      padding: 5px;
+    }
+    .quediv{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .q-number {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    /* Linear options */
+    .options {
+      margin-top: 8px;
+    }
+    .option-item {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    /* Answer lines */
+    .answer-lines {
+      margin-top: 10px;
+    }
+    .answer-line {
+      border-bottom: 1px solid #000;
+      margin: 8px 0;
+      height: 20px;
+    }
+
+    /* Math formatting: Multiplication block */
+    .math-box {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 22px;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    .math-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      font-weight: bold;
+      flex: 0 0 auto;
+      padding: 0px;
+    }
+     .add-box {
+      border-bottom: 2px solid #000;
+      padding: 5px 10px 2px 0px;
+      text-align: right;
+      min-width: 60px;
+      max-width: calc(100% - 60px);
+      box-sizing: border-box;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+     .sub-box {
+      border-bottom: 2px solid #000;
+      padding: 4px 10px 2px 6px;
+      text-align: right;
+      min-width: 60px;
+      max-width: calc(100% - 60px);
+      box-sizing: border-box;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mul-box {
+      border-bottom: 2px solid #000;
+      padding: 4px 10px 2px 6px;
+      text-align: right;
+      min-width: 60px;
+      max-width: calc(100% - 60px);
+      box-sizing: border-box;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    
+
+    .math-row {
+      display: block;
+      padding-right: 6px;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    /* Math formatting: Division (Indian Long Division) */
+    .division {
+      display: inline-flex;
+      align-items: center;
+      gap: 0px;
+      margin-top: 20px;
+      margin-right: 50px;
+      font-size: 18px;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    .divisor {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 50%;
+      justify-content: center;
+      font-weight: bold;
+      flex: 0 0 auto;
+      min-width: 20px;
+        height: 40px;
+    }
+
+/* The divisor (left number) */
+.divisor {
+  font-weight: bold;
+   border-right: 2px solid #000;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+/* Indian long-division bracket: LEFT straight, RIGHT curved */
+.div-symbol {
+  border-top: 2px solid #000;
+  padding: 2px 0px 0px 0px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+
+.long-division {
+  font-size: 28px;
+
+  font-family: "Times New Roman";
+  margin: 25px 0;
+  display: inline-block;
+}
+
+/* Divisor on left */
+.long-division .divisor {
+  float: left;
+  font-weight: bold;
+  padding-right: 12px;
+  padding-top: 10px;
+}
+
+/* Indian division bracket (straight left + curved right) */
+.long-division .bracket {
+  display: inline-block;
+  padding: 12px 20px 12px 20px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/* Dividend at top */
+.long-division .dividend {
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Quotient (top result) */
+.long-division .quotient {
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Sub-steps */
+.long-division .step {
+  padding-left: 10px;
+  position: relative;
+}
+
+/* Horizontal subtraction line */
+.long-division .line {
+  border-top: 2px solid #000;
+  width: 100%;
+  margin: 3px 0;
+}
+
+
+
+    @media print {
+      body {
+        background: white;
+      }
+      .a4 {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="a4">
+    <h1 class="title" id="title">Mathematics Question Paper</h1>
+    <div class="time_fullmark">
+      <div>Time:1 hour</div>
+      <div>Full Mark-100</div>
+    </div>
+    <div class="info">
+      <h2>Class-VIII</h2>
+      <h2> Subject-Math</h2>
+    </div>
+    <div class="notes">
+    </div>
+    <div id="questionPaper">Loading questions...</div>
+  </div>
+
+  <script>
+    const jsonUrl = "q.json";
+
+    async function loadQuestions() {
+      try {
+        const response = await fetch(jsonUrl);
+        const data = await response.json();
+
+        const container = document.getElementById("questionPaper");
+        container.innerHTML = ""; // clear loading text
+
+        // Set title, class, subject
+        document.getElementById("title").innerText = data.title || "Mathematics Question Paper";
+        document.querySelector(".info").innerHTML = `
+          <h2>Class-${data.class || "VIII"}</h2>
+          <h2> Subject-${data.subject || "Math"}</h2>
+        `;
+
+        // Helper to render a single math part
+        function renderMathPart(part) {
+          if (!part) return "";
+          const type = part.type || part.mathType;
+          if (!type) return "";
+
+          if (type === "addition") {
+            return `\n      <div class="math-box">\n        <span class="math-symbol">+</span>\n        <div class="add-box">\n          <div class="math-row">${part.num1 ?? part.a ?? ""}</div>\n          <div class="math-row">${part.num2 ?? part.b ?? ""}</div>\n        </div>\n      </div>`;
+          }
+
+          if (type === "subtraction") {
+            return `\n      <div class="math-box">\n        <span class="math-symbol">−</span>\n        <div class="sub-box">\n          <div class="math-row">${part.num1 ?? part.a ?? ""}</div>\n          <div class="math-row">${part.num2 ?? part.b ?? ""}</div>\n        </div>\n      </div>`;
+          }
+
+          if (type === "multiplication") {
+            return `\n      <div class="math-box">\n        <span class="math-symbol"></span>\n        <div class="mul-box">\n          <div class="math-row">${part.num1 ?? part.a ?? ""}</div>\n          <div class="math-row">${part.num2 ?? part.b ?? ""}</div>\n        </div>\n      </div>`;
+          }
+
+          if (type === "division") {
+            return `\n      <div class="division">\n        <div class="divisor">${part.divisor ?? ""}</div>\n        <div class="div-symbol">${part.dividend ?? ""}</div>\n      </div>`;
+          }
+
+          return "";
+        }
+
+        data.questions.forEach((q, index) => {
+          const qDiv = document.createElement("div");
+          qDiv.className = "question";
+
+          // Apply custom spacing (default 25px)
+          const spacing = q.spaceAfter ? q.spaceAfter : 25;
+          qDiv.style.marginBottom = spacing + "px";
+
+          let html = `
+           <div class="quediv"> <div class="q-text">Q${index + 1}.${q.text.replace(/\n/g, "<br>")}</div>
+           <div>${q.marks ?? 5}</div>
+           </div>
+          `;
+
+          // Support multiple math parts per question via `mathParts` array.
+          // Backwards-compatible: if `mathParts` is missing, fall back to `mathType` + fields on the question object.
+          const parts = Array.isArray(q.mathParts) ? q.mathParts : (q.mathType ? [{ type: q.mathType, num1: q.num1, num2: q.num2, divisor: q.divisor, dividend: q.dividend }] : []);
+          parts.forEach(p => { html += renderMathPart(p); });
+
+          // Objective (linear options)
+          if (q.type === "objective" && q.options) {
+            html += `<div class="options">`;
+            q.options.forEach((opt, i) => {
+              const label = String.fromCharCode(65 + i); // A, B, C, D...
+              html += `<span class="option-item">(${label}) ${opt}</span>`;
+            });
+            html += `</div>`;
+          }
+          // Subjective with optional lines
+          else if (q.type === "subjective") {
+            if (q.lines && q.lines > 0) {
+              html += `<div class="answer-lines">`;
+              for (let i = 0; i < q.lines; i++) {
+                html += `<div class="answer-line"></div>`;
+              }
+              html += `</div>`;
+            }
+          }
+
+          qDiv.innerHTML = html;
+          container.appendChild(qDiv);
+        });
+
+        // Re-render MathJax
+        if (window.MathJax) {
+          MathJax.typesetPromise();
+        }
+
+      } catch (error) {
+        document.getElementById("questionPaper").innerHTML = 
+          "<p style='color:red;'>Failed to load questions.</p>";
+        console.error("Error loading JSON:", error);
+      }
+    }
+
+    loadQuestions();
+  </script>
+</body>
