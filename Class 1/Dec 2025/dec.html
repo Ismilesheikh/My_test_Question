@@ -271,44 +271,65 @@ h2{text-align: center;
     <div id="questionPaper">Loading questions...</div>
   </div>
 
-  <script>
-    const jsonUrl = "q.json";
+  <<script>
 
-    async function loadQuestions() {
+    async function loadQuestions(fileName = "q.json") {
       try {
-        const response = await fetch(jsonUrl);
+        const response = await fetch(fileName);
         const data = await response.json();
 
         const container = document.getElementById("questionPaper");
-        container.innerHTML = ""; // clear loading text
+        container.innerHTML = ""; // clear
 
-        // Set title, class, subject
+        // Title, class, subject
         document.getElementById("title").innerText = data.title || "Mathematics Question Paper";
         document.querySelector(".info").innerHTML = `
           <h2>Class-${data.class || "VIII"}</h2>
           <h2> Subject-${data.subject || "Math"}</h2>
         `;
 
-        // Helper to render a single math part
         function renderMathPart(part) {
           if (!part) return "";
-          const type = part.type || part.mathType;
-          if (!type) return "";
+          const type = part.type;
 
           if (type === "addition") {
-            return `\n      <div class="math-box">\n        <span class="math-symbol">+</span>\n        <div class="add-box">\n          <div class="math-row">${part.num1 ?? part.a ?? ""}</div>\n          <div class="math-row">${part.num2 ?? part.b ?? ""}</div>\n        </div>\n      </div>`;
+            return `
+              <div class="math-box">
+                <span class="math-symbol">+</span>
+                <div class="add-box">
+                  <div class="math-row">${part.num1}</div>
+                  <div class="math-row">${part.num2}</div>
+                </div>
+              </div>`;
           }
 
           if (type === "subtraction") {
-            return `\n      <div class="math-box">\n        <span class="math-symbol">−</span>\n        <div class="sub-box">\n          <div class="math-row">${part.num1 ?? part.a ?? ""}</div>\n          <div class="math-row">${part.num2 ?? part.b ?? ""}</div>\n        </div>\n      </div>`;
+            return `
+              <div class="math-box">
+                <span class="math-symbol">−</span>
+                <div class="sub-box">
+                  <div class="math-row">${part.num1}</div>
+                  <div class="math-row">${part.num2}</div>
+                </div>
+              </div>`;
           }
 
           if (type === "multiplication") {
-            return `\n      <div class="math-box">\n        <span class="math-symbol"></span>\n        <div class="mul-box">\n          <div class="math-row">${part.num1 ?? part.a ?? ""}</div>\n          <div class="math-row">${part.num2 ?? part.b ?? ""}</div>\n        </div>\n      </div>`;
+            return `
+              <div class="math-box">
+                <div class="mul-box">
+                  <div class="math-row">${part.num1}</div>
+                  <div class="math-row">${part.num2}</div>
+                </div>
+              </div>`;
           }
 
           if (type === "division") {
-            return `\n      <div class="division">\n        <div class="divisor">${part.divisor ?? ""}</div>\n        <div class="div-symbol">${part.dividend ?? ""}</div>\n      </div>`;
+            return `
+              <div class="division">
+                <div class="divisor">${part.divisor}</div>
+                <div class="div-symbol">${part.dividend}</div>
+              </div>`;
           }
 
           return "";
@@ -318,57 +339,57 @@ h2{text-align: center;
           const qDiv = document.createElement("div");
           qDiv.className = "question";
 
-          // Apply custom spacing (default 25px)
-          const spacing = q.spaceAfter ? q.spaceAfter : 25;
+          const spacing = q.spaceAfter ?? 25;
           qDiv.style.marginBottom = spacing + "px";
 
           let html = `
-           <div class="quediv"> <div class="q-text">Q${index + 1}.${q.text.replace(/\n/g, "<br>")}</div>
-           <div>${q.marks ?? 5}</div>
-           </div>
+            <div class="quediv">
+              <div class="q-text">Q${index + 1}. ${q.text.replace(/\n/g, "<br>")}</div>
+              <div>${q.marks ?? 5}</div>
+            </div>
           `;
 
-          // Support multiple math parts per question via `mathParts` array.
-          // Backwards-compatible: if `mathParts` is missing, fall back to `mathType` + fields on the question object.
-          const parts = Array.isArray(q.mathParts) ? q.mathParts : (q.mathType ? [{ type: q.mathType, num1: q.num1, num2: q.num2, divisor: q.divisor, dividend: q.dividend }] : []);
-          parts.forEach(p => { html += renderMathPart(p); });
+          const parts = Array.isArray(q.mathParts)
+            ? q.mathParts
+            : q.mathType
+              ? [{ type: q.mathType, ...q }]
+              : [];
 
-          // Objective (linear options)
+          parts.forEach(p => html += renderMathPart(p));
+
           if (q.type === "objective" && q.options) {
             html += `<div class="options">`;
             q.options.forEach((opt, i) => {
-              const label = String.fromCharCode(65 + i); // A, B, C, D...
-              html += `<span class="option-item">(${label}) ${opt}</span>`;
+              html += `<span class="option-item">(${String.fromCharCode(65 + i)}) ${opt}</span>`;
             });
             html += `</div>`;
           }
-          // Subjective with optional lines
-          else if (q.type === "subjective") {
-            if (q.lines && q.lines > 0) {
-              html += `<div class="answer-lines">`;
-              for (let i = 0; i < q.lines; i++) {
-                html += `<div class="answer-line"></div>`;
-              }
-              html += `</div>`;
+
+          if (q.type === "subjective") {
+            html += `<div class="answer-lines">`;
+            for (let i = 0; i < (q.lines || 0); i++) {
+              html += `<div class="answer-line"></div>`;
             }
+            html += `</div>`;
           }
 
           qDiv.innerHTML = html;
           container.appendChild(qDiv);
         });
 
-        // Re-render MathJax
-        if (window.MathJax) {
-          MathJax.typesetPromise();
-        }
+        MathJax?.typesetPromise();
 
       } catch (error) {
-        document.getElementById("questionPaper").innerHTML = 
-          "<p style='color:red;'>Failed to load questions.</p>";
+        document.getElementById("questionPaper").innerHTML =
+          "<p style='color:red;'>Failed to load JSON.</p>";
         console.error("Error loading JSON:", error);
       }
     }
 
-    loadQuestions();
-  </script>
+    // Load default JSON on first load
+    loadQuestions("q.json");
+
+</script>
+
+          
 </body>
