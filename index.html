@@ -175,6 +175,9 @@
     </style>
 </head>
 <body>
+<button class="btn" onclick="openPaper('q1.json')">Open Paper 1</button>
+<button class="btn" onclick="openPaper('q2.json')">Open Paper 2</button>
+<button class="btn" onclick="openPaper('q3.json')">Open Paper 3</button>
     <div class="container">
         <div class="header">
             <h1>📚 My Test Questions</h1>
@@ -203,6 +206,9 @@
         };
 
         let questionPaperCount = 0;
+function openPaper(file){
+    window.location.href = "paper.html?file=" + file;
+}
 
         async function loadContent() {
             const contentDiv = document.getElementById('content');
