@@ -1,0 +1,74 @@
+{
+  "title": " Test Examination January 2026",
+  "class": "",
+  "subject": "Math",
+  "studentDetails": {
+    "name": "____________________",
+    "rollNumber": "______________",
+    "date": "___________________",
+    "class": "____________________"
+  },
+  "questions": [
+    
+    {
+      "type": "math",
+      "title": "निम्नलिखित का भाग कीजिए:",
+      "spaceAfter":280,
+      "mathParts": [
+        { "type": "division", "divisor": "9", "dividend": "567987" }
+      ]
+    },
+    {
+      "type": "subjective",
+      "title": "12,15,21 का ल० स०",
+      "spaceAfter":100,
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title": "24,36 का ल० स०",
+      "spaceAfter": 100,
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title": "12, 45 का म० स०",
+      "spaceAfter":100,
+      "lines": 0
+    },
+    {
+  "type": "subjective",
+  "title": " सरल करे",
+  "text1": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)\\(\\frac{3}{8}\\)+\\(\\frac{6}{10}\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)\\(\\frac{5}{35}\\)×\\(\\frac{25}{15}\\)",
+  "spaceAfter": 100,
+  "lines": 0
+},{
+  "type": "subjective",
+  "title": " सरल करे",
+  "text1": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)\\(\\frac{4}{6}\\)-\\(\\frac{9}{10}\\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)\\(\\frac{10}{15}\\)÷\\(\\frac{20}{45}\\)",
+  "spaceAfter": 100,
+  "lines": 0
+},
+    {
+      "type": "subjective",
+      "title": " 5 फूलो के नाम लिखे ।",
+      "lines": 4
+    },
+    {
+      "type": "subjective",
+      "title": " पता लिखे ?",
+      "lines": 8
+    },
+    {
+  "type": "subjective",
+  "title": " 5 जानवर के नाम",
+  "lines": 3
+},
+    {
+      "type": "subjective",
+      "title": " 5 fruits",
+      "lines": 3
+    }
+    
+  ]
+}
