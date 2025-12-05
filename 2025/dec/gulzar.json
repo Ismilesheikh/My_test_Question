@@ -1,0 +1,89 @@
+{"title": " Test Examination January 2026",
+"class": "",
+"subject": "Math",
+"studentDetails": {
+  "name": "____________________",
+  "rollNumber": "__________",
+  "date": "______________",
+  "class": "____________________"
+},
+"questions": [
+    {
+    "type": "math",
+    "title": "निम्नलिखित का योग कीजिए:",
+    "mathParts": [
+      { "type": "addition", "num1": "3542", "num2": "2136" }
+    ]
+  },
+    {
+    "type": "math",
+    "title": "निम्नलिखित का योग कीजिए:",
+    "mathParts": [
+      { "type": "addition", "num1": "7896", "num2": "7765" }
+    ]
+  },
+  {
+    "type": "math",
+        "spaceAfter":10,
+    "title": "निम्नलिखित का योग कीजिए:",
+    "mathParts": [
+      { "type": "addition", "num1": "3455", "num2": "2898" }
+    ]
+  },
+  {
+    "type": "math",
+    "title": "निम्नलिखित का योग कीजिए:",
+    "spaceAfter":10,
+    "mathParts": [
+      { "type": "addition", "num1": "8795", "num2": "9864" }
+    ]
+  },
+  {
+    "type": "math",
+    "marks": 10,
+    "title": "निम्नलिखित में घटाएँ:",
+    "mathParts": [
+      { "type": "subtraction", "num1": "987", "num2": "231" }
+    ]
+  },
+  {
+    "type": "math",
+    "marks": 10,
+    "title": "निम्नलिखित में घटाएँ:",
+    "mathParts": [
+      { "type": "subtraction", "num1": "9321", "num2": "4858" }
+    ]
+  },
+    {
+    "type": "math",
+    "marks": 10,
+    "title": "निम्नलिखित में घटाएँ:",
+    "mathParts": [
+      { "type": "subtraction", "num1": "700", "num2": "232" }
+    ]
+  },
+    {
+    "type": "math",
+    "marks": 10,
+    "title": "निम्नलिखित में घटाएँ:",
+    "mathParts": [
+      { "type": "subtraction", "num1": "8251", "num2": "2939" }
+    ]
+  },
+  {
+    "type": "subjective",
+    "title": " 1 से 100 तक लिखे",
+    "text1": "",
+    "spaceAfter": 400,
+    "lines": 0
+  },
+  {
+    "type": "subjective",
+    "title": " A से Z तक लिखे",
+    "text1": "",
+    "spaceAfter": 100,
+    "lines": 0
+  }
+
+]
+}
