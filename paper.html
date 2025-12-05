@@ -359,7 +359,7 @@ async function loadQuestions(fileName) {
     data.questions.forEach((q, index) => {
       const qDiv = document.createElement("div");
       qDiv.className = "question";
-          const spacing = q.spaceAfter ?? 25;
+          const spacing = q.spaceAfter ?? 0;
           qDiv.style.marginBottom = spacing + "px";
       let html = `
       <div class="parts">
@@ -375,7 +375,7 @@ async function loadQuestions(fileName) {
 </div>
 
         <div class="quediv">
-          <div class="q-text">Q${index + 1}. ${q.text}</div>
+          <div class="q-text">Q${index + 1}. ${q.title}</div>
           <div>${q.marks ?? 10}</div>
         </div>
         <div class="q-text">${q.text1||''}</div>
