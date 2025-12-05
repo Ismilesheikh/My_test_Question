@@ -1,0 +1,87 @@
+{
+  "title": " Test Examination January 2026",
+  "class": "",
+  "subject": "Math",
+  "studentDetails": {
+    "name": "____________________",
+    "rollNumber": "______________",
+    "date": "___________________",
+    "class": "____________________"
+  },
+  "questions": [
+    
+    {
+      "type": "math",
+      "title": "निम्नलिखित का योग कीजिए:",
+      "spaceAfter":70,
+      "mathParts": [
+        { "type": "addition", "num1": "3459", "num2": "7289" }
+      ]
+    },
+    {
+      "type": "math",
+      "title": "निम्नलिखित का योग कीजिए:",
+      "mathParts": [
+        { "type": "addition", "num1": "9865", "num2": "7089" }
+      ]
+    },
+    {
+  "type": "math",
+  "title": "निम्नलिखित का योग कीजिए:",
+  "mathParts": [
+    { "type": "addition", "num1": "7864", "num2": "7835" }
+  ]
+},
+    {
+      "type": "math",
+      "marks": 10,
+      "title": "निम्नलिखित में घटाएँ:",
+      "mathParts": [
+        { "type": "subtraction", "num1": "8345", "num2": "4897" }
+      ]
+    },
+    {
+      "type": "math",
+      "marks": 10,
+      "spaceAfter":80,
+      "title": "निम्नलिखित में घटाएँ:",
+      "mathParts": [
+        { "type": "subtraction", "num1": "8281", "num2": "3924" }
+      ]
+    },
+    {
+      "type": "math",
+      "title": "निम्नलिखित का गुणा कीजिए:",
+      "mathParts": [
+        { "type": "multiplication", "num1": "48789", "num2": "×7" }
+      ]
+    },
+    {
+      "type": "math",
+      "title": "निम्नलिखित का गुणा कीजिए:",
+      "mathParts": [
+        { "type": "multiplication", "num1": "48789", "num2": "×58" }
+      ]
+    },
+    {
+      "type": "math",
+      "title": "निम्नलिखित का भाग कीजिए:",
+      "spaceAfter":300,
+      "mathParts": [
+        { "type": "division", "divisor": "9", "dividend": "567987" }
+      ]
+    },
+    
+    {
+      "type": "subjective",
+      "title": " 5 फूलो के नाम लिखे ।",
+      "lines": 4
+    },
+    {
+      "type": "subjective",
+      "title": " 10 जानवर के नाम",
+      "lines": 5
+    }
+    
+  ]
+}
