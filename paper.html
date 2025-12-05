@@ -356,6 +356,12 @@ async function loadQuestions(fileName) {
           <div class="q-text">Q${index + 1}. ${q.text}</div>
           <div>${q.marks ?? 10}</div>
         </div>
+        <div class="q-text">${q.text1||''}</div>
+        <div class="q-text">${q.text2||''}</div>
+        <div class="q-text">${q.text3||''}</div>
+        <div class="svg">
+        <div class="svg1">${q.svg1||''}</div>
+        <div class="svg2">${q.svg2||''}</div></div>
       `;
 
       const parts = q.mathParts || [];
