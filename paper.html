@@ -59,6 +59,16 @@ h2{text-align: center;
   border-bottom: 1px solid black;
   padding: 5px 0px;
 }
+    .parts{
+      font-weight: bold;
+      margin-bottom:10px;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .parts .title{
+      border-bottom: 1px solid black;
+      padding: 2px;
+    }
     .question {
       padding: 5px;
     }
@@ -277,8 +287,8 @@ h2{text-align: center;
     <div class="notes">
     </div>
     <div class="student_details">
-      <span id="name"></span>
-      <span id="class"></span>
+     <div> <span id="name"></span>
+      <span id="class"></span></div>
       <div>
         <span id="roll_no"></span>
         <span id="date"></span>
@@ -352,6 +362,18 @@ async function loadQuestions(fileName) {
           const spacing = q.spaceAfter ?? 25;
           qDiv.style.marginBottom = spacing + "px";
       let html = `
+      <div class="parts">
+    <span class='title'>${q.part?.title || ''}</span>
+
+    <span style="float:right;">
+        ${q.part?.marks ? `(${q.part.marks} अंक)` : ''}
+    </span>
+
+    <div class="part-comment">
+        ${q.part?.comment || ''}
+    </div>
+</div>
+
         <div class="quediv">
           <div class="q-text">Q${index + 1}. ${q.text}</div>
           <div>${q.marks ?? 10}</div>
@@ -361,9 +383,9 @@ async function loadQuestions(fileName) {
         <div class="q-text">${q.text3||''}</div>
         <div class="svg">
         <div class="svg1">${q.svg1||''}</div>
-        <div class="svg2">${q.svg2||''}</div></div>
+        <div class="svg2">${q.svg2||''}</div>
+        </div>
       `;
-
       const parts = q.mathParts || [];
       parts.forEach(p => html += renderMathPart(p));
 
