@@ -1,6 +1,6 @@
 {
 "title": " Test Examination January 2026",
-"class": "Class 1",
+"class": "Class VI",
 "subject": "Math",
 "studentDetails": {
   "name": "____________________",
@@ -13,6 +13,7 @@
     "type": "subjective",
     "title": " दिए गए समूह मे सबसे बड़ी संख्या बताइएँ.<br>(a) 5385, 5985, 5386, 5396",
     "text1": "(b) 65894, 64793, 65793, 65893",
+    "spaceAfter": 50,
     "lines": 0
   },
   {
@@ -20,6 +21,7 @@
     "title": "इन्हें अवरोही क्रम में सजाइए :",
     "text2": "(i) 48, 86, 38, 63",
     "text3": "(ii) 14138, 20319, 38976, 91834",
+    "spaceAfter": 50,
     "lines": 0
   },
   {
@@ -46,24 +48,28 @@
     "type": "subjective",
     "title": "उपयुक्त क्रम में सजाकर योग ज्ञात कीजिए।",
     "text1": "(a) 197 +234 + 103 &nbsp;&nbsp;(b) 56 +33 + 44",
+    "spaceAfter": 50,
     "lines": 0
   },
   {
     "type": "subjective",
     "title": "उपयुक्त विधि से निम्न का मान ज्ञात कीजिए।",
     "text1": "(a)728 × 101 &nbsp;&nbsp;(b)4321 x 1001",
+    "spaceAfter": 50,
     "lines": 0
   },
   {
     "type": "subjective",
     "title": "निम्नलिखित संख्याओं को संख्या रेखा पर दर्शाइए",
     "text1": "(a) +8 &nbsp;&nbsp;(b) -6",
+    "spaceAfter": 50,
     "lines": 0
   },
   {
     "type": "subjective",
     "title": "संख्या रेखा का प्रयोग किये बिना योग ज्ञात कीजिए",
     "text1": "(a) 12+(-7)&nbsp;&nbsp;(b) (-13) + (+18)",
+    "spaceAfter": 50,
     "lines": 0
   },
   
