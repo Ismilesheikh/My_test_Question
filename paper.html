@@ -22,15 +22,27 @@
       justify-content: center;
     }
 
-    .a4 {
-      width: 210mm;
-      min-height: 297mm;
-      padding: 5mm 5mm 5mm 5mm;
-      margin: 5px auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      box-sizing: border-box;
-    }
+    .page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 5mm;
+  margin: 10px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+@media print {
+  .page {
+    page-break-after: always;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+
 
     h1 {
       text-align: center;
@@ -274,28 +286,8 @@ h2{text-align: center;
   </style>
 </head>
 <body>
-  <div class="a4">
-    <h1 class="title" id="title">Mathematics Question Paper</h1>
-    <div class="time_fullmark">
-      <div>Time:1 hour</div>
-      <div>Full Mark-100</div>
-    </div>
-    <div class="info">
-      <h2>Class-VIII</h2>
-      <h2> Subject-Math</h2>
-    </div>
-    <div class="notes">
-    </div>
-    <div class="student_details">
-     <div> <span id="name"></span>
-      <span id="class"></span></div>
-      <div>
-        <span id="roll_no"></span>
-        <span id="date"></span>
-      </div>
-        
-    </div>
-    <div id="questionPaper">Loading questions...</div>
+<div id="questionPaper">
+    
   </div>
 
 
@@ -310,29 +302,50 @@ async function loadQuestions(fileName) {
     const response = await fetch(fileName);
     const data = await response.json();
 
-    const container = document.getElementById("questionPaper");
-    container.innerHTML = "";
+const container = document.getElementById("questionPaper");
+container.innerHTML = "";
+
+// Create first A4 page
+let page = document.createElement("div");
+page.className = "page";
+container.appendChild(page);
+
+// Insert header into page 1
+page.innerHTML = `
+    <h1 class="title" id="title">Mathematics Question Paper</h1>
+    <div class="time_fullmark">
+      <div>Time:1 hour</div>
+      <div>Full Mark-100</div>
+    </div>
+    <div class="info"></div>
+<div class="notes">
+    </div>
+    <div class="student_details">
+      <div>
+        <span id="name"></span>
+        <span id="class"></span>
+      </div>
+      <div>
+        <span id="roll_no"></span>
+        <span id="date"></span>
+      </div>
+    </div>
+`;
+
+
 
     // Set title, class, subject
-    document.getElementById("title").innerText = data.title;
-    document.querySelector(".info").innerHTML = `
-        ${data.class !== '' ? `<h2>${data.class}</h2>` : ''}
-      <h2>Subject-${data.subject}</h2>
-    `;
+   document.getElementById("title").innerText = data.title;
+document.querySelector(".info").innerHTML = `
+  ${data.class !== '' ? `<h2>${data.class}</h2>` : ''} 
+  <h2>Subject-${data.subject}</h2>
+`;
 
-    // Set student details if available
-    if (data.studentDetails) {
-      document.getElementById("name").innerText =
-        `Name: ${data.studentDetails.name || "_______________________________"}`;
-      document.getElementById("class").innerText =
-        data.studentDetails.class ? `Class: ${data.studentDetails.class}`:'';
+document.getElementById("name").innerText = `Name: ${data.studentDetails.name}`;
+document.getElementById("class").innerText = `${data.studentDetails.class}`;
+document.getElementById("roll_no").innerText = `Roll No: ${data.studentDetails.rollNumber}`;
+document.getElementById("date").innerText = `Date: ${data.studentDetails.date}`;
 
-      document.getElementById("roll_no").innerText =
-        `Roll No: ${data.studentDetails.rollNumber || "__________"}`;
-
-      document.getElementById("date").innerText =
-        `Date: ${data.studentDetails.date || "______________"}`;
-    }
     function renderMathPart(part) {
       if (!part) return "";
       const type = part.type;
@@ -362,18 +375,6 @@ async function loadQuestions(fileName) {
           const spacing = q.spaceAfter ?? 0;
           qDiv.style.marginBottom = spacing + "px";
       let html = `
-      <div class="parts">
-    <span class='title'>${q.part?.title || ''}</span>
-
-    <span style="float:right;">
-        ${q.part?.marks ? `(${q.part.marks} अंक)` : ''}
-    </span>
-
-    <div class="part-comment">
-        ${q.part?.comment || ''}
-    </div>
-</div>
-
         <div class="quediv">
           <div class="q-text">Q${index + 1}. ${q.title}</div>
           <div>${q.marks ?? 10}</div>
@@ -404,8 +405,39 @@ async function loadQuestions(fileName) {
         html += `</div>`;
       }
 
+      // Render PART heading only if part exists and title is not empty
+if (q.part && q.part.title) {
+  html += `
+    <div class="parts">
+      <span class='title'>${q.part.title}</span>
+      ${q.part.marks ? `<span style="float:right;">(${q.part.marks} अंक)</span>` : ""}
+    </div>
+     <div class="part-comment">
+        ${q.part?.comment || ''}
+  `;
+}
+
+
       qDiv.innerHTML = html;
-      container.appendChild(qDiv);
+   page.appendChild(qDiv);
+
+// Check height overflow: if question does not fit → move to new page
+// SPLIT INTO NEW PAGE IF OVERFLOW
+if (page.scrollHeight > page.clientHeight) {
+
+    // Remove from full page
+    page.removeChild(qDiv);
+
+    // Create new A4 page
+    page = document.createElement("div");
+    page.className = "page";
+    container.appendChild(page);
+
+    // Add the question to new page
+    page.appendChild(qDiv);
+}
+
+
     });
 
     MathJax.typesetPromise();
@@ -419,6 +451,9 @@ async function loadQuestions(fileName) {
 
 // 🔵 Load JSON file
 loadQuestions(fileFromUrl);
+
+
+// PDF Download function
 
 </script>
 
