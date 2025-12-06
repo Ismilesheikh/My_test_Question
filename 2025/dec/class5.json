@@ -1,160 +1,87 @@
 {
-"title": " Test Examination January 2026",
-"class": "Class (V)",
-"subject": "Math",
-"studentDetails": {
-  "name": "____________________",
-  "rollNumber": "__________",
-  "date": "______________",
-  "class": "______________"
-},
-"questions": [
-
-
-  {
-    "part": {
-      "title": "Part A (गणित)",
-      "marks": null
+  "title": " Test Examination December 2025",
+  "class": "Class (V)",
+  "subject": "Math",
+  "studentDetails": {
+    "name": "____________________",
+    "rollNumber": "__________",
+    "date": "______________",
+    "class": ""
+  },
+  "questions": [
+    
+    
+    {
+      "part": {
+        "title": "Part A (गणित)",
+        "marks": null
+      },
+      "type": "subjective",
+      "text": " निम्नलिखित को मिलान कीजिये",
+      "text1": "<div style='display:flex; align-items:center;justify-content: space-evenly; gap:15px;'><svg width='180' height='40' xmlns='http://www.w3.org/2000/svg'><line x1='0' y1='20' x2='150' y2='20' stroke='black' stroke-width='2' /></svg><span style='font-size:18px;'> रेखाखंड</span></div>",
+      "text2": "<div style='display:flex; align-items:center;justify-content: space-evenly; gap:50px;'><svg width='180' height='60' xmlns='http://www.w3.org/2000/svg'><line x1='20' y1='30' x2='160' y2='30' stroke='black' stroke-width='3' /><circle cx='20' cy='30' r='4' fill='black' /><circle cx='160' cy='30' r='4' fill='black' /><text x='12' y='50' font-size='16'>A</text><text x='152' y='50' font-size='16'>B</text></svg><span style='font-size:18px;'> किरन</span></div>",
+      "svg1": "<div style='display:flex; align-items:center;justify-content: space-evenly; gap:50px;'><svg width='180' height='80' xmlns='http://www.w3.org/2000/svg'><defs><marker id='arrow' markerWidth='10' markerHeight='10' refX='6' refY='5' orient='auto'><path d='M0,0 L10,5 L0,10 Z' fill='black' /></marker></defs><line x1='20' y1='40' x2='150' y2='40' stroke='black' stroke-width='3' marker-end='url(#arrow)' /><circle cx='20' cy='40' r='4' fill='black' /><text x='28' y='30' font-size='16'>A</text><text x='275' y='60' font-size='16'>B</text></svg><span style='font-size:18px;'> रेखा</span></div>",
+      "lines": 0
     },
-    "type": "subjective",
-  "title": " निम्नलिखित को मिलान कीजिये",
-  "text1": "<div style='display:flex; align-items:center; gap:15px;'><svg width='180' height='40' xmlns='http://www.w3.org/2000/svg'><line x1='0' y1='20' x2='150' y2='20' stroke='black' stroke-width='2' /></svg><span style='font-size:18px;'>लाइन के दाहिने तरफ टेक्स्ट</span></div>",
- "text2" :"<div style='display:flex; align-items:center; gap:50px;'><svg width='180' height='60' xmlns='http://www.w3.org/2000/svg'><line x1='20' y1='30' x2='160' y2='30' stroke='black' stroke-width='3' /><circle cx='20' cy='30' r='4' fill='black' /><circle cx='160' cy='30' r='4' fill='black' /><text x='12' y='50' font-size='16'>A</text><text x='152' y='50' font-size='16'>B</text></svg><span style='font-size:18px;'> लाइन सेगमेंट का राइट साइड टेक्स्ट</span></div>",
- "svg1":"<svg width='180' height='80' xmlns='http://www.w3.org/2000/svg'><defs><marker id='arrow' markerWidth='10' markerHeight='10' refX='6' refY='5' orient='auto'><path d='M0,0 L10,5 L0,10 Z' fill='black' /></marker></defs><line x1='40' y1='40' x2='280' y2='40' stroke='black' stroke-width='3' marker-end='url(#arrow)' /><circle cx='40' cy='40' r='4' fill='black' /><text x='28' y='30' font-size='16'>A</text><text x='275' y='60' font-size='16'>B</text></svg>",
+    
+    {
+      "type": "subjective",
+      "title": " कोणो के नाम लिखे ।",
+      "text1": " <div style= 'gap:50px'>(a)30°=______________ (b)98°=______________ (c)120°=______________ </div>",
+      "text2": " <div style= 'gap:50px'>(d)90°=______________ (e)89°=______________ </div>",
+      "lines": 0
+    },
+   
+    {
+      "type": "subjective",
+      "title": "निम्नलिखित संख्याओं को प्रसारित रूप में लिखिए",
+       "text1": "(a)7830=_______________________<br> (b)9892 =_______________________",
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title": "निम्नलिखित को सरल कीजिए <br>(a)\\(\\frac{1}{3}+\\frac{6}{9}\\) (b)\\(\\frac{5}{8}-\\frac{6}{12}\\)",
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title":"<,= या > का प्रयोग करे",
+      "text1": "<div class='align'>(a) 6431 <div class='boxs'></div> 6403&nbsp;&nbsp;&nbsp; (b) 5341 <div class='boxs'></div> 3542&nbsp;&nbsp;&nbsp; (c) 4320 <div class='boxs'></div> 0432 </div>",
+      "text2": "<div class='align'> (d)9805 <div class='boxs'></div> 6905&nbsp;&nbsp;&nbsp;(e)27987 <div class='boxs'></div> 27987 </div>",
+      
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title": "⭕ को पूरा करे ",
+      "text1": "<div class='math-problem-area'><!-- Top Ro--><div class='math-row top-row' ><span>8</span><span>9</span><div class='circle-placeholder'></div><span>8</span><div class='circle-placeholder'></div><span>7</span> </div><!-- Middle Row (Subtraction) --><div class='math-row middle-row'> <span>-</span><div class='circle-placeholder'></div><span>4</span><span>1</span><div class='circle-placeholder' ></div><span>4</span><div class='circle-placeholder'></div></div><!-- Bottom Row (Result) --><div class='math-row bottom-row'><span>5</span><div class='circle-placeholder'></div><span>5</span><span>5</span><span>5</span><span>5</span></div></div>",
+      "lines": 0
+    },
+    {
+  "type": "subjective",
+  "title": "⭕ को पूरा करे ",
+  "text1": "<div class='math-problem-area'><!-- Top Ro--><div class='math-row top-row' ><span>8</span><span>9</span><div class='circle-placeholder'></div><span>8</span><div class='circle-placeholder'></div><span>7</span> </div><!-- Middle Row (Subtraction) --><div class='math-row middle-row'> <span>-</span><div class='circle-placeholder'></div><span>4</span><span>1</span><div class='circle-placeholder' ></div><span>4</span><div class='circle-placeholder'></div></div><!-- Bottom Row (Result) --><div class='math-row bottom-row'><span>5</span><div class='circle-placeholder'></div><span>5</span><span>5</span><span>5</span><span>5</span></div></div>",
   "lines": 0
-  },
- 
-  {
-    "type": "subjective",
-    "title": "",
-    "lines": 0,
-    "spaceAfter": 100
-  },
-  {
-    "type": "subjective",
-    "text": "\\(\\frac{-2}{-3}\\) के समतुल्य तीन परिमेय संख्या लिखिए",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "निम्नलिखित का मान ज्ञात कीजिए।<br>(a)\\(\\frac{7}{12}-\\frac{17}{24}\\)  (b)\\(\\frac{-6}{7}÷-15\\)",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "निम्नलिखित में से प्रत्येक का योज्य प्रतिलोम लिखिए।<br>(a)\\(\\frac{1}{3}\\) (b)-11",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "निम्नलिखित के गुणात्मक प्रतिलोम (व्युत्क्रम) ज्ञात कीजिए।<br>(a)\\(\\frac{12}{23}\\)(b)\\(\\frac{2}{-5}\\)",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "निम्नलिखित को संख्या रेखा पर निरुपित  कीजिए।<br>(a)\\(\\frac{3}{4}\\)(b)\\(\\frac{-5}{6}\\)",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "-2 से छोटी पाँच परिमेय संख्या एँ लिखें",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "\\(\\frac{-3}{2}\\) और \\(\\frac{5}{3}\\) के बीच पाँच परिमेय संख्याएँ लिखें",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "निम्नलिखित संख्याओं के वर्ग का इकाई अंक बताएँ।<br>(a)21 (b) 66",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "योग संक्रिया किए बिना योगफल ज्ञात कीजिए।<br>(a)1+3+5+7+9+11+13+15",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "15² को दो क्रमागत पूर्णांकों के योग के रूप मे लिखें ।",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "विकर्ण तरीके का उपयोग करके 234² ज्ञात कीजिए",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "एक पाइथागोरस त्रिक ज्ञात कीजिए जिसमे छोटी संख्या 6 है ।",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "बार-बार घटाने की विधि से 144 का वर्गमूल ज्ञात कीजिए",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "अभाज्य गुणनखंड विधि से निम्नलिखित का वर्गमूल ज्ञात करें:<br>(a)2500 (b)729",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "भाग विधि से वर्गमूल ज्ञात करें:<br>(a)3481 (b)15625",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "वर्गमूल ज्ञात करें:<br>(a)12.96 (b)7.84",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "अभाज्य गुणनखंड विधि से घनमूल ज्ञात करें:<br>(a)27000 (b)512",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "तीन संख्याएँ 2:3:4 के अनुपात में हैं और उनके घनों का योग 99000 है, संख्याएँ ज्ञात करें",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "गुणा किए बिना निम्न वर्ग ज्ञात करें:<br>(a)52² (b)55²",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "अभाज्य गुणनखंड विधि से 1764 का वर्गमूल निकालिए।",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "99856 का वर्गमूल भाग विधि से ज्ञात कीजिए :-",
-    "lines": 10
-  },
-  {
-    "type": "subjective",
-    "title": "मान ज्ञात कीजिए:<br>(a)\\(\\sqrt{\\frac{169}{8100}}\\)",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "अभाज्य गुणनखंड विधि से घनमूल ज्ञात कीजिए:<br>(a)0.001728",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "अभाज्य गुणनखंड विधि से घनमूल ज्ञात कीजिए:<br>(a)157464",
-    "lines": 0
-  },
-  {
-    "type": "subjective",
-    "title": "यदि \\(\\frac{6^n}{6^{-2}}=6^3\\) हो, तो n ज्ञात कीजिए।",
-    "lines": 0
-  }
-
-]
+},
+    {
+      "type": "subjective",
+      "title": " भाग दीजिए",
+      "text1": "(a)500÷100 (b)11528÷11",
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title": "<div class='align'>&nbsp;&nbsp;a. 2 × 8 = <div class='boxs'></div>&nbsp;&nbsp;&nbsp;&nbsp; b.7&nbsp;×&nbsp; <div class='boxs'></div> = 63 &nbsp;&nbsp;&nbsp;&nbsp;c.<div class='boxs'></div> × 9 = 45 &nbsp;&nbsp;&nbsp;&nbsp;d.35 ÷ <div class='boxs'></div> = 5 &nbsp;&nbsp;&nbsp;&nbsp;e.96 ÷ 12 = <div class='boxs'></div></div> ",
+      "lines": 0
+    },
+    {
+      "type": "subjective",
+      "title": "निम्नलिखित के पाँच पाँच गुणज लिखे ",
+      "text1": " (क).4 के गुणज=_______, _______, _______, _______, _______ ",
+      "text2": "( ख).9 के गुणज=_______,_______,_______,_______,_______",
+      "lines": 0
+    }
+    
+    
+  ]
 }
