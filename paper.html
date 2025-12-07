@@ -61,8 +61,8 @@
 }
 
 .circle-placeholder {
-    width: 30px; /* Size of the circle area */
-    height: 30px;
+    width: 20px; /* Size of the circle area */
+    height: 20px;
     border: 1.5px solid #ff5722; /* Orange/red border color */
     border-radius: 50%;
     background-color: white;
@@ -141,6 +141,9 @@ h2{text-align: center;
       font-weight: bold;
       margin-bottom: 5px;
     }
+    .q-text {
+      padding: 5px;
+    }
 
     /* Linear options */
     .options {
@@ -167,7 +170,6 @@ h2{text-align: center;
       align-items: flex-end;
       gap: 8px;
        margin-left: 50px;
-      margin-top: 10px;
       font-size: 22px;
       box-sizing: border-box;
       max-width: 100%;
@@ -424,7 +426,7 @@ document.getElementById("date").innerText = `Date: ${data.studentDetails.date}`;
           qDiv.style.marginBottom = spacing + "px";
       let html = `
         <div class="quediv">
-          <div class="q-text">Q${index + 1}. ${q.title}</div>
+          <div class="text">Q${index + 1}. ${q.title}</div>
           <div>${q.marks ?? 10}</div>
         </div>
         <div class="q-text">${q.text1||''}</div>
